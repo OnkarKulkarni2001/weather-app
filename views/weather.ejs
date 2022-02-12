@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Weather App</h1>
+        </div>
+        <fieldset>
+            <form action="/" method="post">
+                <input name="city" class="city" type="text" placeholder="Enter your city name">
+                <input class="btn" type="submit" class="ghost-button" value="Get Weather">
+            </form>
+            <% if(weather !==null){ %>
+
+                <p><b>
+                        <%= weather %>
+                    </b></p>
+                <p><b>
+                        <%=weatherTemp%>
+                    </b></p>
+                <p><b>
+                        <%=weatherDes%>
+                    </b></p>
+
+                <% } %>
+                    <% if(error !==null){ %>
+                        <p>
+                            <%= error %>
+                        </p>
+                        <% } %>
+        </fieldset>
+        <div class="containerfooter">
+            <p>Date/Time: <span id="datetime"></span></p>
+        </div>
+    </div>
+
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear()) + " " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt.getMinutes()).slice(-2));
+    </script>
+</body>
+
+</html>
